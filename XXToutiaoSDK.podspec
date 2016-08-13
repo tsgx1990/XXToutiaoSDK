@@ -34,6 +34,7 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/tsgx1990/XXToutiaoSDK.git", :tag => s.version }
 
   #s.exclude_files = "Classes/Exclude"
+  s.source_files = "XXToutiaoSDK/XXToutiaoSDK.h"
   s.public_header_files = "XXToutiaoSDK/XXToutiaoSDK.h"
 
   s.resource  = "XXToutiaoSDK/XXToutiaoResBundle.bundle"
