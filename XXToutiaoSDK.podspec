@@ -12,11 +12,7 @@ Pod::Spec.new do |s|
   s.version      = "0.0.1"
   s.summary      = "TouTiao app anyone can join up"
 
-  s.description  = <<-DESC
-                   DESC
-
   s.homepage     = "https://github.com/tsgx1990/XXToutiaoSDK"
-  # s.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
 
   s.license      = "MIT"
   # s.license      = { :type => "MIT", :file => "FILE_LICENSE" }
@@ -37,53 +33,19 @@ Pod::Spec.new do |s|
 
   s.source       = { :git => "https://github.com/tsgx1990/XXToutiaoSDK.git", :tag => s.version }
 
+  #s.exclude_files = "Classes/Exclude"
+  s.public_header_files = "XXToutiaoSDK/XXToutiaoSDK.h"
 
-  # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  #
-  #  CocoaPods is smart about how it includes source code. For source files
-  #  giving a folder will include any swift, h, m, mm, c & cpp files.
-  #  For header files it will include any header in the folder.
-  #  Not including the public_header_files will make all headers public.
-  #
-
-  s.source_files  = "Classes", "Classes/**/*.{h,m}"
-  s.exclude_files = "Classes/Exclude"
-
-  # s.public_header_files = "Classes/**/*.h"
-
-
-  # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  #
-  #  A list of resources included with the Pod. These are copied into the
-  #  target bundle with a build phase script. Anything else will be cleaned.
-  #  You can preserve files from being cleaned, please don't preserve
-  #  non-essential files like tests, examples and documentation.
-  #
-
-  # s.resource  = "icon.png"
+  s.resource  = "XXToutiaoSDK/XXToutiaoResBundle.bundle"
   # s.resources = "Resources/*.png"
 
   # s.preserve_paths = "FilesToSave", "MoreFilesToSave"
 
-
-  # ――― Project Linking ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  #
-  #  Link your library with frameworks, or libraries. Libraries do not include
-  #  the lib prefix of their name.
-  #
-
   s.framework  = "WebKit"
   # s.frameworks = "SomeFramework", "AnotherFramework"
 
-  s.library   = "libsqlite3"
+  s.library   = "sqlite3"
   # s.libraries = "iconv", "xml2"
-
-
-  # ――― Project Settings ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
-  #
-  #  If your library depends on compiler flags you can set them in the xcconfig hash
-  #  where they will only apply to your library. If you depend on other Podspecs
-  #  you can include multiple dependencies to ensure it works.
 
   s.requires_arc = true
 
@@ -94,4 +56,16 @@ Pod::Spec.new do |s|
   s.dependency "Masonry", "~> 1.0.1"
   s.dependency "MJRefresh", "~> 3.1.0"
 
+  s.subspec 'fat' do |ss|
+    ss.source_files  = "XXToutiaoSDK/fat/libXXToutiaoSDK.a"
+  end
+
+  s.subspec 'iphone' do |ss|
+    ss.source_files  = "XXToutiaoSDK/iphoneos/libXXToutiaoSDK.a"
+  end
+  
+  s.subspec 'simulator' do |ss|
+    ss.source_files  = "XXToutiaoSDK/iphonesimulator/libXXToutiaoSDK.a"
+  end
+  
 end
