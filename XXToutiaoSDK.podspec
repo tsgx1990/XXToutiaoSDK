@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "XXToutiaoSDK"
-  s.version      = "0.0.1"
+  s.version      = "0.0.2"
   s.summary      = "TouTiao app anyone can join up"
 
   s.homepage     = "https://github.com/tsgx1990/XXToutiaoSDK"
@@ -36,7 +36,6 @@ Pod::Spec.new do |s|
   #s.exclude_files = "Classes/Exclude"
   s.source_files = "XXToutiaoSDK/XXToutiaoSDK.h"
   s.public_header_files = "XXToutiaoSDK/XXToutiaoSDK.h"
-
   s.resource  = "XXToutiaoSDK/XXToutiaoResBundle.bundle"
   # s.resources = "Resources/*.png"
 
@@ -58,15 +57,27 @@ Pod::Spec.new do |s|
   s.dependency "MJRefresh", "~> 3.1.0"
 
   s.subspec 'fat' do |ss|
-    ss.source_files  = "XXToutiaoSDK/fat/libXXToutiaoSDK.a"
+
+    ss.source_files  = "XXToutiaoSDK/{XXToutiaoSDK.h,fat/libXXToutiaoSDK.a}"
+    ss.public_header_files = "XXToutiaoSDK/XXToutiaoSDK.h"
+    ss.resource  = "XXToutiaoSDK/XXToutiaoResBundle.bundle"
+
   end
 
   s.subspec 'iphone' do |ss|
-    ss.source_files  = "XXToutiaoSDK/iphoneos/libXXToutiaoSDK.a"
+
+    ss.source_files  = "XXToutiaoSDK/{XXToutiaoSDK.h,iphoneos/libXXToutiaoSDK.a}"
+    ss.public_header_files = "XXToutiaoSDK/XXToutiaoSDK.h"
+    ss.resource  = "XXToutiaoSDK/XXToutiaoResBundle.bundle"
+
   end
   
   s.subspec 'simulator' do |ss|
-    ss.source_files  = "XXToutiaoSDK/iphonesimulator/libXXToutiaoSDK.a"
+
+    ss.source_files  = "XXToutiaoSDK/{XXToutiaoSDK.h,iphonesimulator/libXXToutiaoSDK.a}"
+    ss.public_header_files = "XXToutiaoSDK/XXToutiaoSDK.h"
+    ss.resource  = "XXToutiaoSDK/XXToutiaoResBundle.bundle"
+
   end
   
 end
