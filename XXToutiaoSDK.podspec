@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "XXToutiaoSDK"
-  s.version      = "0.0.2"
+  s.version      = "0.0.3"
   s.summary      = "TouTiao app anyone can join up"
 
   s.homepage     = "https://github.com/tsgx1990/XXToutiaoSDK"
@@ -58,25 +58,28 @@ Pod::Spec.new do |s|
 
   s.subspec 'fat' do |ss|
 
-    ss.source_files  = "XXToutiaoSDK/{XXToutiaoSDK.h,fat/libXXToutiaoSDK.a}"
+    ss.source_files = "XXToutiaoSDK/XXToutiaoSDK.h"
     ss.public_header_files = "XXToutiaoSDK/XXToutiaoSDK.h"
-    ss.resource  = "XXToutiaoSDK/XXToutiaoResBundle.bundle"
+    ss.resource = "XXToutiaoSDK/XXToutiaoResBundle.bundle"
+    ss.vendored_libraries = "XXToutiaoSDK/fat/libXXToutiaoSDK.a"
 
   end
 
   s.subspec 'iphone' do |ss|
 
-    ss.source_files  = "XXToutiaoSDK/{XXToutiaoSDK.h,iphoneos/libXXToutiaoSDK.a}"
+    ss.source_files = "XXToutiaoSDK/XXToutiaoSDK.h"
     ss.public_header_files = "XXToutiaoSDK/XXToutiaoSDK.h"
-    ss.resource  = "XXToutiaoSDK/XXToutiaoResBundle.bundle"
+    ss.resource = "XXToutiaoSDK/XXToutiaoResBundle.bundle"
+    ss.vendored_libraries = "XXToutiaoSDK/iphoneos/libXXToutiaoSDK.a"
 
   end
   
   s.subspec 'simulator' do |ss|
 
-    ss.source_files  = "XXToutiaoSDK/{XXToutiaoSDK.h,iphonesimulator/libXXToutiaoSDK.a}"
+    ss.source_files = "XXToutiaoSDK/XXToutiaoSDK.h"
     ss.public_header_files = "XXToutiaoSDK/XXToutiaoSDK.h"
-    ss.resource  = "XXToutiaoSDK/XXToutiaoResBundle.bundle"
+    ss.resource = "XXToutiaoSDK/XXToutiaoResBundle.bundle"
+    ss.vendored_libraries = "XXToutiaoSDK/iphonesimulator/libXXToutiaoSDK.a"
 
   end
   
